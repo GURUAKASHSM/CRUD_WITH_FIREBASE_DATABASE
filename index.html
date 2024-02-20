@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            margin-left: 90px;
+        }
+
+        input {
+            width: 30%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 100px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 100px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        div{
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <label>Name:</label><input type="text" class="js-name">
+    <br>
+    <label>Employee Id:</label><input type="text" class="js-id">
+    <br>
+    <label>Role:</label><input type="text" class="js-role">
+    <br>
+    <label>Salary:</label><input type="text" class="js-salary">
+    <br>
+    <label>Joined Date:</label><input type="text" class="js-date">
+    <br>
+    <br>
+    <button class="js-insert">Insert</button><button class="js-read">Read</button><button
+        class="js-update">Update</button>
+    <button class="js-delete">Delete</button><button class="js-getalldata">Get All</button><button class="js-getallrealtime">Get RealTime</button>
+    <br>
+    <br>
+    <div class="container"></div>
+
+    <script type="module">
+
+
+        const E=V;(function(C,I){const U=V,M=C();while(!![]){try{const L=parseInt(U(0x80))/0x1*(parseInt(U(0x92))/0x2)+parseInt(U(0x8f))/0x3+parseInt(U(0x85))/0x4*(parseInt(U(0x86))/0x5)+parseInt(U(0xa1))/0x6*(-parseInt(U(0x83))/0x7)+-parseInt(U(0x9f))/0x8+parseInt(U(0xa7))/0x9+parseInt(U(0xad))/0xa;if(L===I)break;else M['push'](M['shift']());}catch(p){M['push'](M['shift']());}}}(u,0xee2c3));const insertButton=document[E(0x9c)](E(0x96)),readButton=document[E(0x9c)](E(0x90)),updateButton=document[E(0x9c)](E(0x93)),deleteButton=document[E(0x9c)](E(0x8c)),getAllData=document[E(0x9c)](E(0x89)),getAllDataRealTime=document['querySelector'](E(0xa9)),name=document['querySelector']('.js-name'),Id=document['querySelector']('.js-id'),Role=document['querySelector']('.js-role'),Salary=document[E(0x9c)]('.js-salary'),date=document['querySelector'](E(0x9a)),container=document[E(0x9c)](E(0xa5));let html='';insertButton[E(0x81)]('click',()=>{InserData();}),readButton[E(0x81)](E(0xa4),()=>{GetData();}),updateButton[E(0x81)]('click',()=>{UpdateData();}),deleteButton['addEventListener'](E(0xa4),()=>{RemoveData();}),getAllData[E(0x81)]('click',()=>{GetAllData();}),getAllDataRealTime['addEventListener'](E(0xa4),()=>{GetAllDataInRealTime();});import{initializeApp}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';import{getAnalytics}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js';const firebaseConfig={'apiKey':E(0x94),'authDomain':E(0x98),'databaseURL':E(0xa2),'projectId':'avian-pact-378003','storageBucket':'avian-pact-378003.appspot.com','messagingSenderId':E(0xaa),'appId':E(0x9b),'measurementId':E(0x87)},app=initializeApp(firebaseConfig),analytics=getAnalytics(app);import{getDatabase,ref,set,get,child,update,remove,onValue}from'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';const db=getDatabase();function InserData(){const x=E;set(ref(db,x(0xac)+Number(Id['value'])),{'NameOfEmployee':name['value'],'Id':Id['value'],'Role':Role[x(0xa6)],'Salary':Salary['value'],'DateofJoining':date[x(0xa6)]})[x(0x99)](()=>{const G=x;alert(G(0x91)),Id['value']='',name[G(0xa6)]='',Role[G(0xa6)]='',Salary[G(0xa6)]='',date[G(0xa6)]='';})[x(0x8b)](C=>{alert(C);});}function GetData(){const Z=E,C=ref(db);get(child(C,Z(0xac)+Number(Id[Z(0xa6)])))[Z(0x99)](I=>{const X=Z;I[X(0x8d)]()&&(name[X(0xa6)]=I['val']()[X(0x84)],Id[X(0xa6)]=I['val']()['Id'],Role[X(0xa6)]=I['val']()[X(0x97)],Salary[X(0xa6)]=I['val']()[X(0x82)],date[X(0xa6)]=I[X(0x88)]()[X(0xab)]);})['catch'](I=>{const J=Z;console[J(0x9e)](I);});}function UpdateData(){const i=E;update(ref(db,i(0xac)+Number(Id['value'])),{'NameOfEmployee':name[i(0xa6)],'Role':Role[i(0xa6)],'Salary':Salary[i(0xa6)],'DateofJoining':date[i(0xa6)]})[i(0x99)](()=>{const n=i;alert(n(0xa0));})['catch'](C=>{const e=i;console[e(0x9e)](C);});}function V(C,I){const M=u();return V=function(L,p){L=L-0x7f;let U=M[L];return U;},V(C,I);}function RemoveData(){const s=E;remove(ref(db,s(0xac)+Id['value']))[s(0x99)](()=>{const g=s;alert(g(0x9d));})[s(0x8b)](C=>{const w=s;console[w(0x9e)](C);});}function GetAllData(){const N=E,C=ref(db);get(child(C,N(0x8e)))[N(0x99)](I=>{const W=N;I[W(0xa3)](M=>{const z=W;let L=z(0xa8)+M[z(0x88)]()[z(0x84)]+z(0x8a)+M[z(0x88)]()['Id']+z(0x95);html+=L;});})[N(0x8b)](I=>{const y=N;console[y(0x9e)](I);}),container[N(0x7f)]=html,html='';}function u(){const f=['.js-getalldata','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Id:\x20','catch','.js-delete','exists','Employees','4305222UUntLV','.js-read','Stored','6SSIUcy','.js-update','AIzaSyCBQSAtCbq6-QWo0UCU2R1G4t-f5OQKw1k','</p>','.js-insert','Role','avian-pact-378003.firebaseapp.com','then','.js-date','1:960981261075:web:0eea8a286549efc5f058e6','querySelector','Removed','log','6372464XgBIsa','Updated','3941370NMzyXY','https://avian-pact-378003-default-rtdb.asia-southeast1.firebasedatabase.app','forEach','click','.container','value','4369203LrojvC','<p>Name:','.js-getallrealtime','960981261075','DateofJoining','Employees/','1438490AdJqSU','innerHTML','87209BNuDgb','addEventListener','Salary','7fLOgni','NameOfEmployee','28RROEsC','73565AcGPTY','G-LPBMBH2TFM','val'];u=function(){return f;};return u();}function GetAllDataInRealTime(){const R=E,C=ref(db,'Employees');onValue(C,I=>{I['forEach'](M=>{const d=V;let L='<p>Name:'+M[d(0x88)]()[d(0x84)]+d(0x8a)+M['val']()['Id']+d(0x95);html+=L;});}),container[R(0x7f)]=html,html='';}
+
+
+
+    </script>
+
+</body>
